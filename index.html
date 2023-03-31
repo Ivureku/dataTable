@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Student Table</title>
+    
+</head>
+<body class="bg-slate-400">
+    <div class="flex flex-row justify-center items-start mt-3 pr-2">
+        <div class="mr-8">
+            <form autocomplete="off">
+                <p>Input Form</p>
+                <div id="nameMsg"></div>
+                <label for="name">Name:</label><br>
+                <input class="border-solid border rounded-lg border-gray-400 mt-2" type="text" name="name" id="name"><br>
+
+                <div id="yearMsg"></div>
+                <label for="year">Year:</label><br>
+                <input class="border rounded-lg" type="text" id="year" name="year"><br>
+                
+                <div id="courseMsg"></div>
+                <label for="course">Course:</label><br>
+                <input class="border rounded-lg"type="text" id="course" name="course"><br>
+               
+                <div id="sexMsg"></div>
+                <label for="sex">Sex:</label><br>
+                <input type="radio" id="male" name="sex" value="Male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="sex" value="Female">
+                <label for="female">Female</label><br>
+
+                <div id="gradeMsg"></div>
+                <label for="grade">Grade:</label><br>
+                <input class="border-solid border rounded-lg border-gray-400" type="number" name="grade" id="grade"><br>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-3" onclick="validate()">Submit</button>
+            </form>
+        </div>
+        <div class="ml-3">
+            <form id="searchform">
+              <p>Search</p>
+                <label for="name">Name:</label><br>
+                <input class="border-solid border rounded-lg border-gray-400 mt-2" type="text" name="name" id="searchName"><br>
+
+                <label for="year">Year:</label><br>
+                <input type="radio" id="first" name="searchYear" value="1st">
+                <label for="first">1st</label>
+                <input type="radio" id="second" name="searchYear" value="2nd">
+                <label for="second">2nd </label>
+                <input type="radio" id="third" name="searchYear" value="3rd">
+                <label for="third">3rd </label>
+                <input type="radio" id="fouth" name="searchYear" value="4th">
+                <label for="fouth">4th </label><br>
+
+                <label for="course">Course:</label><br>
+                <input type="radio" id="DS" name="searchCourse" value="DS">
+                <label for="DS">DS</label>
+                <input type="radio" id="CS" name="searchCourse" value="CS">
+                <label for="CS">CS</label>
+                <input type="radio" id="IT" name="searchCourse" value="IT">
+                <label for="IT">IT</label>
+                <input type="radio" id="IS" name="searchCourse" value="IS">
+                <label for="IS">IS</label><br>
+
+                <label for="searchSex">Sex:</label><br>
+                <input type="radio" id="male" name="searchSex" value="Male">
+                <label for="searchSex">Male</label>
+                <input type="radio" id="female" name="searchSex" value="Female">
+                <label for="searchFemale">Female</label><br>
+
+                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg mt-3" onclick="search()">Search</button>
+                <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-lg mt-3" id="clear-button">Clear</button>
+
+            </form>
+        </div>
+    </div>
+    <div class="flex flex-col items-center mt-4">
+        <table class="table-auto border-none rounded-lg border-collapse bg-white shadow-lg overflow-hidden" id="table">
+            <thead class="bg-sky-800 text-white">
+              <tr>
+                <th class="pl-7 pr-7 ">Name</th>
+                <th class="pl-7 pr-7 ">Year</th>
+                <th class="pl-7 pr-7 ">Course</th>
+                <th class="pl-7 pr-7 ">Sex</th>
+                <th class="pl-7 pr-7 ">Final Grade</th>
+                <th class="pl-7 pr-7 ">Action</th>
+              </tr>
+            </thead>
+            <tbody class="">
+              <!-- <tr class="border-none hover:bg-stone-300">
+                <td class=" pl-1 pr-1">Kervi Kent C. Asombrado</td>
+                <td class=" text-center">2nd</td>
+                <td class=" text-center">BS-IT</td>
+                <td class="text-center">Male</td>
+                <td class=" text-center">A</td>
+                <td class=" pl-2 pr-2 "><button class=" hover:text-red-700 text-blue-700  py-2 px-4  text-center">Delete</button></td>
+              </tr>
+              <tr class="border-none hover:bg-stone-300">
+                <td class="pl-1 pr-1">Marvin Paul D. Eloja</td>
+                <td class="text-center">2nd</td>
+                <td class="text-center">BS-IT</td>
+                <td class="text-center">Male</td>
+                <td class="text-center">A</td>
+                <td class=" pl-2 pr-2 "><button class=" hover:text-red-700 text-blue-700  py-2 px-4  text-center">Delete</button></td>
+              </tr>
+              <tr class="border-none hover:bg-stone-300">
+                <td class="pl-1 pr-1">Shika Eramis</td>
+                <td class="text-center">2nd</td>
+                <td class="text-center">BS-IT</td>
+                <td class="text-center">Female</td>
+                <td class="text-center">A</td>
+                <td class=" pl-2 pr-2 "><button class=" hover:text-red-700 text-blue-700  py-2 px-4  text-center">Delete</button></td>
+              </tr> -->
+            </tbody>
+          </table>
+    </div>
+    <div id="average" class="flex justify-center">
+      <p>Average Grade =</p><p id='avg'></p>
+    </div>
+    <script src="table.js"></script>
+</body>
+</html>
